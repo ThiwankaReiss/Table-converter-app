@@ -31,7 +31,7 @@ export class ConvertBtnComponent implements OnInit {
     this.http.get("https://script.google.com/macros/s/AKfycbyS_QsDX-2FxTlBlFO5l7YztP_U4xlFNxVna8Bs8Nldv8r9H9sVv5gA6wgnxE7Ef2-7bg/exec").subscribe(async (data) => {
       this.itemsList = data;
       console.log(data);
-
+      let k=0;
       for (let i = 0; i < this.itemsList.length; i++) {
         const element = this.itemsList[i];
 
@@ -49,7 +49,8 @@ export class ConvertBtnComponent implements OnInit {
 
             console.log(dataSet);
 
-            this.newArray[i * (element.length - 1) + (j - 1) - element.length +1] = dataSet;
+            this.newArray[k] = dataSet;
+            k=k+1;
 
           }
         }
